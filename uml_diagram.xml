@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" modified="2025-12-01T18:10:00.000Z" agent="Mozilla/5.0" version="22.0.8">
+    <diagram id="bookmyshow" name="BookMyShow UML">
+        <mxGraphModel dx="1800" dy="1800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2480" pageHeight="3508" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- City -->
+                <mxCell id="city" value="City&#xa;---------------------&#xa;+ id : Long&#xa;+ name : String&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="100" y="100" width="220" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- Theater -->
+                <mxCell id="theater" value="Theater&#xa;---------------------&#xa;+ id : Long&#xa;+ name : String&#xa;+ address : String&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="400" y="100" width="240" height="200" as="geometry"/>
+                </mxCell>
+
+                <!-- Auditorium -->
+                <mxCell id="auditorium" value="Auditorium&#xa;---------------------&#xa;+ id : Long&#xa;+ name : String&#xa;+ capacity : int&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="400" y="350" width="240" height="200" as="geometry"/>
+                </mxCell>
+
+                <!-- Seat -->
+                <mxCell id="seat" value="Seat&#xa;---------------------&#xa;+ id : Long&#xa;+ rowVal : int&#xa;+ columnVal : int&#xa;+ seatNumber : String&#xa;+ seatType : Enum&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="400" y="600" width="260" height="230" as="geometry"/>
+                </mxCell>
+
+                <!-- Movie -->
+                <mxCell id="movie" value="Movie&#xa;---------------------&#xa;+ id : Long&#xa;+ name : String&#xa;+ duration : int&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="800" y="100" width="220" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- Show -->
+                <mxCell id="show" value="Show&#xa;---------------------&#xa;+ id : Long&#xa;+ startDate : DateTime&#xa;+ endDate : DateTime&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="800" y="350" width="240" height="200" as="geometry"/>
+                </mxCell>
+
+                <!-- ShowSeat -->
+                <mxCell id="showseat" value="ShowSeat&#xa;---------------------&#xa;+ id : Long&#xa;+ showSeatStatus : Enum&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="800" y="600" width="240" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- Ticket -->
+                <mxCell id="ticket" value="Ticket&#xa;---------------------&#xa;+ id : Long&#xa;+ amount : int&#xa;+ status : Enum&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="1100" y="600" width="220" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- User -->
+                <mxCell id="user" value="User&#xa;---------------------&#xa;+ id : Long&#xa;+ name : String&#xa;+ email : String&#xa;+ createdAt : Instant&#xa;+ updatedAt : Instant" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1">
+                    <mxGeometry x="1100" y="350" width="220" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- Relationships -->
+                <mxCell id="rel1" edge="1" parent="1" source="city" target="theater" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel2" edge="1" parent="1" source="theater" target="auditorium" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel3" edge="1" parent="1" source="auditorium" target="seat" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel4" edge="1" parent="1" source="auditorium" target="show" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel5" edge="1" parent="1" source="movie" target="show" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel6" edge="1" parent="1" source="show" target="showseat" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel7" edge="1" parent="1" source="seat" target="showseat" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel8" edge="1" parent="1" source="show" target="ticket" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel9" edge="1" parent="1" source="user" target="ticket" value="1..*">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel10" edge="1" parent="1" source="ticket" target="showseat" value="1..* (optional)">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
