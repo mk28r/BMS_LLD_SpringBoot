@@ -2,6 +2,7 @@ package org.example.bookmyshow_lld.controllers;
 
 import org.example.bookmyshow_lld.models.City;
 import org.example.bookmyshow_lld.services.CityService;
+import org.example.bookmyshow_lld.services.ICityService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/cities")
 public class CityController {
 
-    private final CityService cityService;
+    private final ICityService cityService;
 
     public CityController(CityService cityService) {
         this.cityService = cityService;
