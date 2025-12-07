@@ -1,5 +1,6 @@
 package org.example.bookmyshow_lld.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -12,11 +13,12 @@ import java.util.List;
 @Getter
 @Setter
 public class Theater extends BaseModel{
-    private String Name ;
+    private String name ;
     private String address ;
     @ManyToOne
-    protected City city ;
+    private City city ;
 
     @OneToMany(mappedBy ="theater" )
+    @JsonIgnore
     private List<Auditorium> auditoriums ;
 }

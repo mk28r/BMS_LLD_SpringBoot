@@ -1,5 +1,6 @@
 package org.example.bookmyshow_lld.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Ticket extends BaseModel{
     private Shows show;
 
     @OneToMany(mappedBy = "ticket")
+    @JsonIgnore
     private List<ShowSeat> showSeat;
 
     @Enumerated(EnumType.ORDINAL)

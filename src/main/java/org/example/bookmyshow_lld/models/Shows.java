@@ -1,5 +1,6 @@
 package org.example.bookmyshow_lld.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -22,5 +23,6 @@ public class Shows extends BaseModel{
     private Auditorium auditorium ;
 
     @OneToMany(mappedBy = "shows")
+    @JsonIgnore
     private List<ShowSeat> Showseats ;
 }

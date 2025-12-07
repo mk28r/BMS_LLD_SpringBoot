@@ -17,7 +17,7 @@ public class AuditoriumController {
         this.auditoriumService = auditoriumService;
     }
 
-    @PostMapping("/theater/{theaterId}")
+    @PostMapping( "/theater/{theaterId}")
     public Auditorium create(@PathVariable Long theaterId, @RequestBody Auditorium auditorium) {
         return auditoriumService.createAuditorium(theaterId, auditorium);
     }
